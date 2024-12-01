@@ -210,7 +210,7 @@ FILE_SCHEMA = cv.Schema(_file_schema)
 IMAGE_SCHEMA = cv.Schema(
     cv.All(
         {
-            cv.Required(CONF_ID): cv.declare_id(Image_),
+            cv.Required(CONF_ID): cv.declare_id(MQTTImage),
             cv.Required(CONF_FILE): FILE_SCHEMA,
             cv.Optional(CONF_RESIZE): cv.dimensions,
             # Not setting default here on purpose; the default depends on the source type
