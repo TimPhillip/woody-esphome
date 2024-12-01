@@ -41,17 +41,6 @@ MULTI_CONF_NO_DEFAULT = True
 
 image_ns = cg.esphome_ns.namespace("image")
 
-ImageType = image_ns.enum("ImageType")
-IMAGE_TYPE = {
-    "BINARY": ImageType.IMAGE_TYPE_BINARY,
-    "TRANSPARENT_BINARY": ImageType.IMAGE_TYPE_BINARY,
-    "GRAYSCALE": ImageType.IMAGE_TYPE_GRAYSCALE,
-    "RGB565": ImageType.IMAGE_TYPE_RGB565,
-    "RGB24": ImageType.IMAGE_TYPE_RGB24,
-    "RGBA": ImageType.IMAGE_TYPE_RGBA,
-}
-
-CONF_USE_TRANSPARENCY = "use_transparency"
 
 # If the MDI file cannot be downloaded within this time, abort.
 IMAGE_DOWNLOAD_TIMEOUT = 30  # seconds
@@ -409,6 +398,6 @@ async def to_code(config):
     rhs = [HexInt(x) for x in data]
     prog_arr = cg.progmem_array(config[CONF_RAW_DATA_ID], rhs)
     var = cg.new_Pvariable(
-        config[CONF_ID], prog_arr, width, height, IMAGE_TYPE[config[CONF_TYPE]]
+        config[CONF_ID], prog_arr, width, height
     )
     cg.add(var.set_transparency(transparent))
