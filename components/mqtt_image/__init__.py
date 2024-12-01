@@ -29,7 +29,7 @@ from esphome.core import CORE, HexInt
 _LOGGER = logging.getLogger(__name__)
 
 DOMAIN = "mqtt_image"
-DEPENDENCIES = ["display"]
+DEPENDENCIES = ["display", "image"]
 MULTI_CONF = True
 MULTI_CONF_NO_DEFAULT = True
 
