@@ -39,7 +39,7 @@ DEPENDENCIES = ["display", "image"]
 MULTI_CONF = True
 MULTI_CONF_NO_DEFAULT = True
 
-image_ns = cg.esphome_ns.namespace("image")
+image_ns = cg.esphome_ns.namespace("mqtt_image")
 
 
 # If the MDI file cannot be downloaded within this time, abort.
