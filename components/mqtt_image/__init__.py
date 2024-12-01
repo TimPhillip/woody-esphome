@@ -25,6 +25,12 @@ from esphome.const import (
     CONF_URL,
 )
 from esphome.core import CORE, HexInt
+from esphome.components.image import (
+    CONF_USE_TRANSPARENCY,
+    IMAGE_TYPE,
+    Image_,
+    validate_cross_dependencies,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -55,7 +61,7 @@ SOURCE_MDI = "mdi"
 SOURCE_WEB = "web"
 
 
-Image_ = image_ns.class_("MQTTImage")
+MQTTImage = image_ns.class_("MQTTImage", Image_)
 
 
 def _compute_local_icon_path(value: dict) -> Path:
