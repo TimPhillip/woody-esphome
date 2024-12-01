@@ -2,7 +2,7 @@
 #include "esphome/core/hal.h"
 
 
-public MQTTImage::MQTTImage(const uint8_t *data_start, int width, int height):
+MQTTImage::MQTTImage(const uint8_t *data_start, int width, int height):
 image::Image(
   data_start, width, height, image::ImageType::RGB_565 
 ){
