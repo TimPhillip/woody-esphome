@@ -13,7 +13,7 @@ class MQTTImage : public image::Image, public mqtt::CustomMQTTDevice{
     public:
         MQTTImage(const uint8_t *data_start, int width, int height);
 
-        void setup() override;
+        void setup();
     private:
 
 };
