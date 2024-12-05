@@ -14,6 +14,7 @@ class MQTTImage : public Component, public image::Image, public mqtt::CustomMQTT
     public:
         MQTTImage(const uint8_t *data_start, int width, int height);
         void setup() override;
+        void on_image_update(const std::string& topic, const std::string& payload);
 
 };
 
