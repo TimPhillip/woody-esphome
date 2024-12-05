@@ -53,7 +53,7 @@ SOURCE_MDI = "mdi"
 SOURCE_WEB = "web"
 
 
-MQTTImage = image_ns.class_("MQTTImage", Image_, MQTTComponent)
+MQTTImage = image_ns.class_("MQTTImage", Image_)
 
 
 def _compute_local_icon_path(value: dict) -> Path:
