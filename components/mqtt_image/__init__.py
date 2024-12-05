@@ -31,11 +31,14 @@ from esphome.components.image import (
     Image_,
     validate_cross_dependencies,
 )
+from esphome.components.mqtt import (
+    MQTTComponent
+)
 
 _LOGGER = logging.getLogger(__name__)
 
 DOMAIN = "mqtt_image"
-DEPENDENCIES = ["display", "image"]
+DEPENDENCIES = ["display", "image", "mqtt"]
 MULTI_CONF = True
 MULTI_CONF_NO_DEFAULT = True
 
@@ -50,7 +53,7 @@ SOURCE_MDI = "mdi"
 SOURCE_WEB = "web"
 
 
-MQTTImage = image_ns.class_("MQTTImage", Image_)
+MQTTImage = image_ns.class_("MQTTImage", Image_, MQTTComponent)
 
 
 def _compute_local_icon_path(value: dict) -> Path:
