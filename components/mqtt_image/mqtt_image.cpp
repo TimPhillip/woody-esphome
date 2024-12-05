@@ -16,7 +16,7 @@ image::Image(
 void MQTTImage::setup(){
 
     this->subscribe("test_topic", [this](const std::string& topic, const std::string& payload){
-        ESP_LOGW("Received Payload in MQTTImage")
+        ESP_LOGW("Received Payload in MQTTImage");
     });
 
 }
