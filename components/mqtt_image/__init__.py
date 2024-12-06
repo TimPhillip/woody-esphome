@@ -404,3 +404,5 @@ async def to_code(config):
         config[CONF_ID], prog_arr, width, height
     )
     cg.add(var.set_transparency(transparent))
+
+    await cg.register_component(var, config)
