@@ -42,6 +42,8 @@ DEPENDENCIES = ["display", "image", "mqtt"]
 MULTI_CONF = True
 MULTI_CONF_NO_DEFAULT = True
 
+CONF_MQTT_TOPIC = "topic"
+
 image_ns = cg.esphome_ns.namespace("mqtt_image")
 
 
@@ -215,6 +217,7 @@ IMAGE_SCHEMA = cv.Schema(
         {
             cv.Required(CONF_ID): cv.declare_id(MQTTImage),
             cv.Required(CONF_FILE): FILE_SCHEMA,
+            cv.Required(CONF_MQTT_TOPIC): cv.string,
             cv.Optional(CONF_RESIZE): cv.dimensions,
             # Not setting default here on purpose; the default depends on the source type
             # (file or mdi), and will be set in the "validate_cross_dependencies" validator.
@@ -401,7 +404,7 @@ async def to_code(config):
     rhs = [HexInt(x) for x in data]
     prog_arr = cg.progmem_array(config[CONF_RAW_DATA_ID], rhs)
     var = cg.new_Pvariable(
-        config[CONF_ID], prog_arr, width, height
+        config[CONF_ID], prog_arr, width, height, config[CONF_MQTT_TOPIC]
     )
     cg.add(var.set_transparency(transparent))
 

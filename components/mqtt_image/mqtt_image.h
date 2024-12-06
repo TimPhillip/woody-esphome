@@ -12,10 +12,12 @@ namespace mqtt_image{
 class MQTTImage : public Component, public image::Image, public mqtt::CustomMQTTDevice{
 
     public:
-        MQTTImage(const uint8_t *data_start, int width, int height);
+        MQTTImage(const uint8_t *data_start, int width, int height, std::string& topic);
         void setup() override;
         void on_image_update(const std::string& topic, const std::string& payload);
 
+    protected:
+        std::string& mqtt_topic_;
 };
 
 }

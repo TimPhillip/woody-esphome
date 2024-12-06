@@ -6,16 +6,16 @@ namespace esphome{
 namespace mqtt_image{
 
 
-MQTTImage::MQTTImage(const uint8_t *data_start, int width, int height):
+MQTTImage::MQTTImage(const uint8_t *data_start, int width, int height, std::string& topic):
 image::Image(
   data_start, width, height, image::ImageType::IMAGE_TYPE_RGB565
 ){
-    ESP_LOGD("mqtt_image", "MQTTImage Init");
+    this->mqtt_topic_ = topic;
 }
 
 void MQTTImage::setup(){
     ESP_LOGD("mqtt_image", "MQTTImage Setup");
-    this->subscribe("test_topic", &MQTTImage::on_image_update);
+    this->subscribe(this->mqtt_topic_, &MQTTImage::on_image_update);
 }
 
 void MQTTImage::on_image_update(const std::string& topic, const std::string& payload){
