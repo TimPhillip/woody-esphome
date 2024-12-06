@@ -9,8 +9,7 @@ namespace mqtt_image{
 MQTTImage::MQTTImage(const uint8_t *data_start, int width, int height, std::string& topic):
 image::Image(
   data_start, width, height, image::ImageType::IMAGE_TYPE_RGB565
-){
-    this->mqtt_topic_ = topic;
+),mqtt_topic_(topic){
 }
 
 void MQTTImage::setup(){
