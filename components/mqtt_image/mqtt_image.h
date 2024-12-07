@@ -17,7 +17,7 @@ class MQTTImage : public Component, public image::Image, public mqtt::CustomMQTT
         void on_image_update(const std::string& topic, const std::string& payload);
 
     protected:
-        const std::string& mqtt_topic_;
+        const std::string mqtt_topic_;
 };
 
 }
