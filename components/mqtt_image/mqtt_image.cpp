@@ -14,6 +14,7 @@ image::Image(
 
 void MQTTImage::setup(){
     ESP_LOGD("mqtt_image", "MQTTImage Setup");
+    
     this->subscribe(this->mqtt_topic_, &MQTTImage::on_image_update);
 }
 
@@ -21,11 +22,11 @@ void MQTTImage::on_image_update(const std::string& topic, const std::string& pay
     ESP_LOGD("mqtt_image", "Received Payload in MQTTImage");
 }
 
-void MQTTIamge::send_discovery(JsonObject root, SendDiscoveryConfig &config){
+void MQTTImage::send_discovery(mqtt::JsonObject root, mqtt::SendDiscoveryConfig &config){
 
 }
 
-std::string component_type() const{
+std::string MQTTImage::component_type() const{
     return "other";
 }
 
