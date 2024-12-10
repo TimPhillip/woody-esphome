@@ -22,7 +22,7 @@ void MQTTImage::on_image_update(const std::string& topic, const std::string& pay
     ESP_LOGD("mqtt_image", "Received Payload in MQTTImage");
 }
 
-void MQTTImage::send_discovery(mqtt::JsonObject root, mqtt::SendDiscoveryConfig &config){
+void MQTTImage::send_discovery(JsonObject root, mqtt::SendDiscoveryConfig &config){
 
 }
 
