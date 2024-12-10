@@ -15,7 +15,7 @@ image::Image(
 void MQTTImage::setup(){
     ESP_LOGD("mqtt_image", "MQTTImage Setup");
     
-    this->subscribe(this->mqtt_topic_, &MQTTImage::on_image_update);
+    //this->subscribe(this->mqtt_topic_, MQTTImage::on_image_update);
 }
 
 void MQTTImage::on_image_update(const std::string& topic, const std::string& payload){

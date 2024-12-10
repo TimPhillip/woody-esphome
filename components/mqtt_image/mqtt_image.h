@@ -16,7 +16,7 @@ class MQTTImage : public image::Image, public mqtt::MQTTComponent{
         void setup() override;
         void on_image_update(const std::string& topic, const std::string& payload);
 
-        void send_discovery(JsonObject root, SendDiscoveryConfig &config);
+        void send_discovery(mqtt::JsonObject root, mqtt::SendDiscoveryConfig &config);
         std::string component_type() const;
 
     protected:
